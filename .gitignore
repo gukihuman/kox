@@ -1,0 +1,8 @@
+node_modules
+desktop.ini
+.env
+.nuxt
+.nitro
+.cache
+.output
+dist
