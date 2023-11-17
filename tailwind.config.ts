@@ -3,16 +3,12 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["montserrat", "system-ui"], // default
-        fira: ["Fira Code"], // for numbers
-        lilita: ["Lilita One"], // special numbers (e.g. level)
-        roboto: ["Roboto Mono"],
+        mulish: ["Mulish"],
+        russo: ["Russo One"],
+        montserrat: ["Montserrat"],
       },
       colors: {
-        tan: "#cfc391",
-        chestnut: "#a0492d",
-        "dark-gunmetal": "#1a202a",
-        "space-cadet": "#243551",
-        "jelly-bean-blue": "#438a86",
+        dark: "#591417",
       },
     },
   },
