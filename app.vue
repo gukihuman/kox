@@ -1,7 +1,7 @@
 <template lang="pug">
 div(
   ref="doc"
-  class="relative min-h-screen bg-[#a89180]"
+  class="relative min-h-screen "
   :style="docStyle"
 )
   transition: div(
@@ -15,6 +15,9 @@ div(
       img(src="@/assets/bg-bottom.webp" class="absolute bottom-0 w-full object-cover")
     roof
     mobile-column(v-if="!GLOBAL.desktop")
+    div(class="flex mx-[24px]")
+      desktop-column-left(v-if="GLOBAL.desktop")
+      desktop-column-right(v-if="GLOBAL.desktop")
 </template>
 <script setup lang="ts">
 let doc = ref()
@@ -22,12 +25,14 @@ let box = ref()
 let loaded = ref(false)
 let scale = ref(0)
 const docStyle = computed(() => {
+  if (typeof window === "undefined") return
   let targetHeight = innerWidth < 768 ? 1182 : 1593
   return {
-    "max-height": targetHeight + "px",
+    "max-height": targetHeight * scale.value + "px",
   }
 })
 const boxStyle = computed(() => {
+  if (typeof window === "undefined") return
   let targetWidth = innerWidth < 768 ? 375 : 1200
   const styleObject = {
     transform: `scale(${scale.value})`,
@@ -47,6 +52,7 @@ onMounted(() => {
   loaded.value = true
 })
 function setScale() {
+  if (typeof window === "undefined") return
   let targetWidth = 1200
   if (innerWidth < 768) {
     targetWidth = 375
@@ -59,6 +65,9 @@ function setScale() {
 }
 </script>
 <style>
+html {
+  background-color: #a89180;
+}
 .v-enter-active,
 .v-leave-active {
   transition: opacity 300ms ease-in-out;

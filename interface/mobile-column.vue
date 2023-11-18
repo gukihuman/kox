@@ -23,12 +23,12 @@ div(class="w-[340px] h-full mx-auto flex flex-col gap-[13px]")
 
   div(class="w-[368px] h-[20px] bg-dark-vanilla mt-[10px]")
     p(class="text-justify text-montserrat font-semibold text-[16px] font-semibold leading-[17px] text-chocolate-cosmos") Декларация о соответствии:
-  dark-button(@click="LIBRARY.openLink()" text="Открыть на сайте Росаккредитации")
+  mobile-dark-button(@click="LIBRARY.openLink()" text="Открыть на сайте Росаккредитации")
   div(class="relative mt-1")
     div(class="w-[368px] h-[20px] bg-dark-vanilla")
       mobile-text(text="Скачать")
     div(class="absolute -top-1 left-[77px] flex gap-4")
-      dark-button(@click="LIBRARY.savePdf()" text=".pdf")
-      dark-button(@click="LIBRARY.saveDocx()" text=".docx")
-      dark-button(@click="LIBRARY.saveJpg()" text=".jpg")
+      mobile-dark-button(@click="LIBRARY.savePdf()" text=".pdf")
+      mobile-dark-button(@click="LIBRARY.saveDocx()" text=".docx")
+      mobile-dark-button(@click="LIBRARY.saveJpg()" text=".jpg")
 </template>
