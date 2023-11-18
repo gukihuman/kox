@@ -1,13 +1,14 @@
 export default defineNuxtPlugin(async () => {
-  const modules = MODELS.modules // for compact view :)
-  await load(import.meta.glob("@/modules/**/*"), modules, false, "ts", true)
-  await load(import.meta.glob("@/assets/**/*"), ASSETS.webps, false, "webp")
-  await load(import.meta.glob("@/assets/**/*"), ASSETS.jsons, false, "json")
+  await load(import.meta.glob("@/modules/**/*"), MODELS.modules, "ts", true)
+  await load(import.meta.glob("@/assets/**/*"), ASSETS.webps, "webp")
+  await load(import.meta.glob("@/assets/**/*"), ASSETS.jsons, "json")
+  await load(import.meta.glob("@/assets/**/*"), ASSETS.pdfs, "pdf")
+  await load(import.meta.glob("@/assets/**/*"), ASSETS.docxs, "docx")
+  await load(import.meta.glob("@/assets/**/*"), ASSETS.jpgs, "jpg")
 })
 async function load(
   paths: Record<string, () => Promise<Record<string, any>>>,
   savePlace: AnyObject | string[],
-  addNameProperty = false,
   format: LoadFormats = "ts",
   justNames = false
 ) {
@@ -20,19 +21,7 @@ async function load(
       savePlace.push(name)
       continue
     }
-    if (item.default["🔧"] === "collection") {
-      _.forEach(item.default, (value, key) => {
-        if (key === "type") return
-        savePlace[key] = value
-        // check if it's an object because some unknown string error occurs
-        if (addNameProperty && typeof savePlace[key] === "object") {
-          savePlace[key].name = key
-        }
-      })
-    } else {
-      savePlace[name] = item.default
-      if (addNameProperty) item.default.name = name
-    }
+    savePlace[name] = item.default
   }
 }
 function getFileName(path: string, format: LoadFormats) {
@@ -42,7 +31,13 @@ function getFileName(path: string, format: LoadFormats) {
   } else if (format === "webp") {
     match = path.match(/\/([^/]+)\.webp/)
   } else if (format === "json") {
-    match = path.match(/\/([^/]+)\.json/)
+    match = path.match(/\/([^/]+)\.webp/)
+  } else if (format === "pdf") {
+    match = path.match(/\/([^/]+)\.pdf/)
+  } else if (format === "docx") {
+    match = path.match(/\/([^/]+)\.docx/)
+  } else if (format === "jpg") {
+    match = path.match(/\/([^/]+)\.jpg/)
   }
   if (!match) return
   return `${match[1]}`

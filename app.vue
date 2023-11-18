@@ -1,49 +1,62 @@
 <template lang="pug">
-div(ref="screen" class="relative min-h-screen bg-[#a89180] overflow-x-hidden")
+div(
+  ref="doc"
+  class="relative min-h-screen bg-[#a89180]"
+  :style="docStyle"
+)
   transition: div(
+    ref="box"
     v-if="loaded"
-    :style="style"
-    class="w-full h-full bg-gradient-to-b from-[#ecceb1] to-[#e2c7ac] shadow-xl"
+    :style="boxStyle"
+    class="w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden"
   )
-    div(class="absolute w-full h-full")
-      img(src="@/assets/bg-top.webp")
-      img(src="@/assets/bg-bottom.webp" class="absolute bottom-0")
+    div(class="absolute w-full h-full -z-10")
+      img(src="@/assets/bg-top.webp" class="w-full object-cover")
+      img(src="@/assets/bg-bottom.webp" class="absolute bottom-0 w-full object-cover")
     roof
+    mobile-column(v-if="!GLOBAL.desktop")
 </template>
 <script setup lang="ts">
-let screen = ref()
+let doc = ref()
+let box = ref()
 let loaded = ref(false)
 let scale = ref(0)
-const style = computed(() => {
-  let screenElement = screen.value
-  if (!screenElement) return
-  let targetWidth = screenElement.clientWidth < 768 ? 375 : 1200
-  let margin = 0
-  if (screenElement.clientWidth > 1200) {
-    margin = (screenElement.clientWidth - 1200) / 2
-  }
+const docStyle = computed(() => {
+  let targetHeight = innerWidth < 768 ? 1182 : 1593
   return {
-    transform: `scale(${scale.value})`,
-    "transform-origin": "left top",
-    // width: Math.min(targetWidth * scale.value, 1200) + "px",
-    width: targetWidth + "px",
-    "margin-left": margin + "px",
+    "max-height": targetHeight + "px",
   }
 })
-function setScale() {
-  let screenElement = screen.value
-  if (!screenElement) return
-  let targetWidth = screenElement.clientWidth < 768 ? 375 : 1200
-  console.log(screenElement.clientWidth)
-  const boxWidth = Math.min(screenElement.clientWidth, 1200) * devicePixelRatio
-  scale.value = boxWidth / targetWidth / devicePixelRatio
-}
+const boxStyle = computed(() => {
+  let targetWidth = innerWidth < 768 ? 375 : 1200
+  const styleObject = {
+    transform: `scale(${scale.value})`,
+    "transform-origin": "left top",
+    width: targetWidth + "px",
+  }
+  if (innerWidth < 1200) {
+    _.merge(styleObject, { "margin-left": "0px" })
+  }
+  return styleObject
+})
 onMounted(() => {
+  REFS.doc = doc.value
   setScale()
   addEventListener("resize", setScale)
   setTimeout(() => (loaded.value = true), 20)
   loaded.value = true
 })
+function setScale() {
+  let targetWidth = 1200
+  if (innerWidth < 768) {
+    targetWidth = 375
+    GLOBAL.desktop = false
+  } else {
+    GLOBAL.desktop = true
+  }
+  const boxWidth = Math.min(innerWidth, 1200) * devicePixelRatio
+  scale.value = boxWidth / targetWidth / devicePixelRatio
+}
 </script>
 <style>
 .v-enter-active,
@@ -53,5 +66,9 @@ onMounted(() => {
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
 }
 </style>

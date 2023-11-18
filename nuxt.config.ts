@@ -23,7 +23,7 @@ export default defineNuxtConfig({
 
   // important for correct work of importer
   vite: {
-    assetsInclude: ["**/*.md"],
+    assetsInclude: ["**/*.md", "**/*.pdf", "**/*.docx", "**/*.jpg"],
     build: { minify: false },
   },
   sourcemap: false, // save build not working with sourcemap

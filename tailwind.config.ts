@@ -6,9 +6,11 @@ module.exports = {
         mulish: ["Mulish"],
         russo: ["Russo One"],
         montserrat: ["Montserrat"],
+        marck: ["Marck Script"],
       },
       colors: {
-        dark: "#591417",
+        "chocolate-cosmos": "#591417",
+        "dark-vanilla": "#DCB79C",
       },
     },
   },
