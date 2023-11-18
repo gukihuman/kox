@@ -1,10 +1,10 @@
 <template lang="pug">
 div(class="w-[340px] h-full mx-auto flex flex-col gap-[13px]")
-  img(src="@/assets/photo-2.webp" alt="Фото сыра" class="w-full object-cover rounded-[12px] select-none")
+  img(src="@/assets/photo-2.webp" alt="Фото сыра" class="w-full object-cover rounded-[12px] select-none shadow-lg")
 
   mobile-text(indent="true" text="Продукт заполняет пустующую на рынке нишу натурального, классического копчёного сыра. Отлично подходит к чаю, вину, пиву. Идеален в дальней дороге и на изысканном столе. Приятные ноты можжевелового аромата прекрасно сочетаются с классическим вкусом лучших алтайских сыров.")
 
-  img(src="@/assets/photo-2.webp" alt="Фото сыра" class="w-full object-cover rounded-[12px] select-none")
+  img(src="@/assets/photo-2.webp" alt="Фото сыра" class="w-full object-cover rounded-[12px] select-none shadow-lg")
 
   div(class="flex flex-col gap-[8px] mt-[6px]")
     div(class="w-[368px] h-[20px] bg-dark-vanilla")
@@ -19,7 +19,7 @@ div(class="w-[340px] h-full mx-auto flex flex-col gap-[13px]")
   div(class="w-[368px] h-[20px] bg-dark-vanilla")
     mobile-text(text="Вакуумнaя упаковка, 200-250 гр.")
 
-  img(src="@/assets/photo-1.webp" alt="Фото прилавка с сыром" class="w-full object-cover rounded-[12px] select-none mt-[10px]")
+  img(src="@/assets/photo-1.webp" alt="Фото прилавка с сыром" class="w-full object-cover rounded-[12px] select-none mt-[10px] shadow-lg")
 
   div(class="w-[368px] h-[20px] bg-dark-vanilla mt-[10px]")
     p(class="text-justify text-montserrat font-semibold text-[16px] font-semibold leading-[17px] text-chocolate-cosmos") Декларация о соответствии:
