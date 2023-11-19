@@ -14,7 +14,6 @@ export default defineNuxtConfig({
       },
     ],
   ],
-  ignore: ["whales/**", "sprout/**"],
   imports: {
     dirs: ["boot/**/*.{js,ts}", "modules/**/*.{js,ts}"],
   },
@@ -24,7 +23,7 @@ export default defineNuxtConfig({
 
   // important for correct work of importer
   vite: {
-    assetsInclude: ["**/*.md"],
+    assetsInclude: ["**/*.md", "**/*.pdf", "**/*.docx", "**/*.jpg"],
     build: { minify: false },
   },
   sourcemap: false, // save build not working with sourcemap

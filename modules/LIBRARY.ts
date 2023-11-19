@@ -1,4 +1,29 @@
 class Library {
+  openLink() {
+    window.open("https://pub.fsa.gov.ru/rds/declaration/view/17846766")
+  }
+  saveFile(source, name) {
+    fetch(source)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(blob)
+        const link = document.createElement("a")
+        link.href = url
+        link.setAttribute("download", name)
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      })
+  }
+  savePdf() {
+    this.saveFile(ASSETS.pdfs["Dec"], "Декларация.pdf")
+  }
+  saveDocx() {
+    this.saveFile(ASSETS.docxs["Dec"], "Декларация.docx")
+  }
+  saveJpg() {
+    this.saveFile(ASSETS.jpgs["Dec"], "Декларация.jpg")
+  }
   addGetter(object: AnyObject, name: string, fn: () => any) {
     Object.defineProperty(object, name, {
       get: fn,
