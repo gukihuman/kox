@@ -1,23 +1,19 @@
 <template lang="pug">
-div(
-  ref="doc"
+div(ref="doc"
   class="relative min-h-screen "
-  :style="docStyle"
-)
-  transition: div(
-    ref="box"
+  :style="docStyle")
+  transition: div(ref="box"
     v-if="loaded"
     :style="boxStyle"
-    class="w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden"
-  )
+    class="w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden")
     div(class="absolute w-full h-full -z-10")
       img(src="@/assets/bg-top.webp" class="w-full object-cover")
       img(src="@/assets/bg-bottom.webp" class="absolute bottom-0 w-full object-cover")
     roof
     mobile-column(v-if="!GLOBAL.desktop")
-    div(class="flex mx-[24px]")
-      desktop-column-left(v-if="GLOBAL.desktop")
-      desktop-column-right(v-if="GLOBAL.desktop")
+    div(class="flex mx-[24px]" v-if="GLOBAL.desktop")
+      desktop-column-left
+      desktop-column-right
 </template>
 <script setup lang="ts">
 let doc = ref()
