@@ -1,10 +1,10 @@
 <template lang="pug">
 div(ref="doc"
-  class="relative min-h-screen "
+  class="relative min-h-screen"
   :style="docStyle")
-  div(ref="box"
+  div(ref="box" id="box"
     :style="boxStyle"
-    class="w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden opacity-0")
+    class="hide-content w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden")
     div(class="absolute w-full h-full -z-10 opacity-[0.1]")
       img(src="@/assets/bg-top.webp" class="w-full object-cover")
       img(src="@/assets/bg-bottom.webp" class="absolute bottom-0 w-full object-cover")
@@ -42,8 +42,9 @@ onMounted(() => {
   REFS.doc = doc.value
   setScale()
   addEventListener("resize", setScale)
-
-  box.value.style.opacity = 1
+  setTimeout(() => {
+    box.value.classList.remove("hide-content")
+  }, 100)
 })
 function setScale() {
   if (typeof window === "undefined") return
@@ -61,6 +62,9 @@ function setScale() {
 <style>
 html {
   background-color: #a89180;
+}
+.hide-content {
+  opacity: 0;
 }
 .v-enter-active,
 .v-leave-active {
