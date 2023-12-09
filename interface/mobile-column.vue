@@ -39,7 +39,7 @@ div(class="w-[345px] h-full mx-auto flex flex-col gap-[13px]")
 
   mobile-text(text="«Партизан»" class="w-[400px]" bold="true" class="mt-[-5px]")
   mobile-text(text="ресторан" class="w-[400px]" class="mt-[-30px] ml-[95px]")
-  mobile-text(text="Комсомольский пр-т, д. 44, стр. а" class="mt-[-12px] mb-[2px]")
+  mobile-text(text="г. Пермь, Комсомольский пр-т, д. 44, стр. а" class="mt-[-12px] mb-[2px]")
 
   img(src="@/assets/photo-1.webp" alt="Фото сыра" class="w-full object-cover rounded-[12px] select-none mt-[10px] shadow-lg")
 

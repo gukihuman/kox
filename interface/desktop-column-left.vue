@@ -32,7 +32,7 @@ div(class="w-[525px] h-full mx-auto flex flex-col gap-[28px]")
 
   desktop-text(text="«Партизан»" class="w-[400px]" bold="true" class="mt-[-10px]")
   desktop-text(text="ресторан" class="w-[400px]" class="mt-[-54px] ml-[142px]")
-  desktop-text(text="Комсомольский пр-т, д. 44, стр. а" class="mt-[-18px] mb-[2px]")
+  desktop-text(text="г. Пермь, Комсомольский пр-т, д. 44, стр. а" class="mt-[-18px] mb-[2px]")
 
   img(src="@/assets/photo-1.webp" alt="Фото сыра" class="w-full object-cover rounded-[12px] select-none mt-[10px] shadow-lg")
 
