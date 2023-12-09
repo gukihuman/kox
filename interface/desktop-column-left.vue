@@ -11,12 +11,12 @@ div(class="w-[525px] h-full mx-auto flex flex-col gap-[28px]")
       desktop-text(text="Партнёры" class="ml-[-24px]" bold="true" class="mb-[6px]")
       desktop-text(text="(здесь вы можете приобрести сыр)" class="ml-[-24px]")
 
-  desktop-text(text="«Cleverfich»" class="w-[400px]" bold="true" class="mt-[-10px]")
+  desktop-text(text="«Cleverfish»" class="w-[400px]" bold="true" class="mt-[-10px]")
   desktop-text(text="магазин рыбы и морепродуктов" class="w-[400px]" class="mt-[-54px] ml-[145px]")
   desktop-text(text="г. Пермь, Комсомольский пр-т, д. 49" class="mt-[-18px]")
   desktop-text(text="г. Пермь, Курья, Лесопарковый переулок 2а/3" class="mt-[-18px]")
   
-  desktop-text(text="«Скажите сыр»" class="w-[400px]" bold="true" class="mt-[-10px]")
+  desktop-text(text="«Скажите сыр!»" class="w-[400px]" bold="true" class="mt-[-10px]")
   desktop-text(text="г. Пермь, ул. Сибирская, д. 46. " class="mt-[-18px]")
 
   desktop-text(text="«Бабушкина грядка»" class="w-[400px]" bold="true" class="mt-[-10px]")
