@@ -3,9 +3,9 @@ div(ref="doc"
   class="relative min-h-screen "
   :style="docStyle")
   transition: div(ref="box"
-    v-show="loaded"
     :style="boxStyle"
-    class="w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden")
+    class="w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden"
+    :class="loaded ? 'opacity-1' : 'opacity-[0.01]'")
     div(class="absolute w-full h-full -z-10 opacity-[0.1]")
       img(src="@/assets/bg-top.webp" class="w-full object-cover")
       img(src="@/assets/bg-bottom.webp" class="absolute bottom-0 w-full object-cover")
