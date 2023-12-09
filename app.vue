@@ -1,8 +1,9 @@
 <template lang="pug">
 div(ref="doc"
-  class="relative min-h-screen"
+  class="relative min-h-screen "
   :style="docStyle")
-  div(ref="box" id="box"
+  transition: div(ref="box"
+    v-show="loaded"
     :style="boxStyle"
     class="w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden")
     div(class="absolute w-full h-full -z-10 opacity-[0.1]")
@@ -17,7 +18,8 @@ div(ref="doc"
 <script setup lang="ts">
 let doc = ref()
 let box = ref()
-let scale = ref(1)
+let loaded = ref(false)
+let scale = ref(0)
 const docStyle = computed(() => {
   if (typeof window === "undefined") return
   let targetHeight = innerWidth < 768 ? 1182 : 1593
@@ -42,7 +44,7 @@ onMounted(() => {
   REFS.doc = doc.value
   setScale()
   addEventListener("resize", setScale)
-  box.value.classList.remove("hide-content")
+  setTimeout(() => (loaded.value = true), 20)
 })
 function setScale() {
   if (typeof window === "undefined") return
@@ -60,9 +62,6 @@ function setScale() {
 <style>
 html {
   background-color: #a89180;
-}
-.hide-content {
-  opacity: 0;
 }
 .v-enter-active,
 .v-leave-active {
