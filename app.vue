@@ -4,7 +4,7 @@ div(ref="doc"
   :style="docStyle")
   div(ref="box" id="box"
     :style="boxStyle"
-    class="hide-content w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden")
+    class="w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden")
     div(class="absolute w-full h-full -z-10 opacity-[0.1]")
       img(src="@/assets/bg-top.webp" class="w-full object-cover")
       img(src="@/assets/bg-bottom.webp" class="absolute bottom-0 w-full object-cover")
@@ -42,9 +42,7 @@ onMounted(() => {
   REFS.doc = doc.value
   setScale()
   addEventListener("resize", setScale)
-  setTimeout(() => {
-    box.value.classList.remove("hide-content")
-  }, 100)
+  box.value.classList.remove("hide-content")
 })
 function setScale() {
   if (typeof window === "undefined") return
