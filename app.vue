@@ -4,9 +4,8 @@ div(ref="doc"
   :style="docStyle")
   div(ref="box"
     :style="boxStyle"
-    class="w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden"
-    :class="loaded ? 'opacity-1' : 'opacity-[0.01]'")
-    div(class="absolute w-full h-full -z-10")
+    class="w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden opacity-0")
+    div(class="absolute w-full h-full -z-10 opacity-[0.1]")
       img(src="@/assets/bg-top.webp" class="w-full object-cover")
       img(src="@/assets/bg-bottom.webp" class="absolute bottom-0 w-full object-cover")
     roof
@@ -18,8 +17,7 @@ div(ref="doc"
 <script setup lang="ts">
 let doc = ref()
 let box = ref()
-let loaded = ref(false)
-let scale = ref(0)
+let scale = ref(1)
 const docStyle = computed(() => {
   if (typeof window === "undefined") return
   let targetHeight = innerWidth < 768 ? 1182 : 1593
@@ -44,7 +42,8 @@ onMounted(() => {
   REFS.doc = doc.value
   setScale()
   addEventListener("resize", setScale)
-  loaded.value = true
+
+  box.value.style.opacity = 1
 })
 function setScale() {
   if (typeof window === "undefined") return
