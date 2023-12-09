@@ -3,7 +3,7 @@ div(ref="doc"
   class="relative min-h-screen "
   :style="docStyle")
   transition: div(ref="box"
-    v-if="loaded"
+    v-show="loaded"
     :style="boxStyle"
     class="w-full h-full mx-auto bg-gradient-to-r from-[#ecceb1] to-dark-vanilla shadow-xl pb-[70px] md:pb-[125px] overflow-hidden")
     div(class="absolute w-full h-full -z-10")
@@ -45,7 +45,6 @@ onMounted(() => {
   setScale()
   addEventListener("resize", setScale)
   setTimeout(() => (loaded.value = true), 20)
-  loaded.value = true
 })
 function setScale() {
   if (typeof window === "undefined") return
