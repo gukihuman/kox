@@ -34,6 +34,10 @@ div(class="w-[525px] h-full mx-auto flex flex-col gap-[28px]")
   desktop-text(text="ресторан" class="w-[400px]" class="mt-[-54px] ml-[142px]")
   desktop-text(text="г. Пермь, Комсомольский пр-т, д. 44, стр. а" class="mt-[-18px] mb-[2px]")
 
+  desktop-text(text="«Гастрономическая лавка»" class="w-[400px]" bold="true" class="mt-[-10px]")
+  desktop-text(text="г. Пермь, ул. Революции д. 22" class="mt-[-18px]")
+  desktop-text(text="г. Пермь, ул. Петропавловская д. 29" class="mt-[-18px]")
+
   img(src="@/assets/photo-1.webp" alt="Фото сыра" class="w-full object-cover rounded-[12px] select-none mt-[10px] shadow-lg")
 
   div(class="w-full h-[26px] bg-[#D5AD90] flex justify-center mt-[8px] mb-[0px]")
